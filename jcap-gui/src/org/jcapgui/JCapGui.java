@@ -14,6 +14,7 @@ import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.Window;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
@@ -25,28 +26,28 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
 import org.jcap.JCap;
-import org.jcapdialog.model.ICap;
+import org.jcapgui.model.ICap;
 import transparentWindows.AWTUtilitiesWrapper;
 
 /**
  *
  * @author Patricio Pérez Pinto
  */
-public class JCapDialog extends Observable/*extiende de observable, ya que
- JCapDialog avisa a los observadores cuando se captura la foto*/ implements Observer{
+public class JCapGui extends Observable/*extiende de observable, ya que
+ JCapGui avisa a los observadores cuando se captura la foto*/ implements Observer{
     private JCap cap; // para poder capturar la wea
     private Rectangle rec; // rectangulo que quiero capturar
-    private JDialog jdialog;// el jdialog que va a servir para poder cachar que wea queri capturar
+    private Window jdialog;// el jdialog que va a servir para poder cachar que wea queri capturar
     private ICap icap;//interface que despues creo que la entederas
     private int tamanioEnEquis;// el tamaño en equis de la captura, por ejemplo, si queri la wea normal, le chantai un 1, o si queri
     //la imagen doble un 2x, y asi sucesivamente
     
-    public JCapDialog(JDialog jdialog, ICap icap) {
+    public JCapGui(Window jdialog, ICap icap) {
         // si el weon no pone la cantidad de "x", se establece en 1x (recuerda que x es el tamaño weon)
         this(jdialog ,icap, 1);
     }
     
-    public JCapDialog(JDialog jdialog, ICap icap, int tamanioEnEquis){
+    public JCapGui(Window jdialog, ICap icap, int tamanioEnEquis){
         this.jdialog = jdialog;
         this.jdialog.setVisible(false);
         this.addObserver(this);// añado el observador this porque esta clase implementa Observer
@@ -104,7 +105,7 @@ public class JCapDialog extends Observable/*extiende de observable, ya que
                 try {
                     thisMouseReleased(evt);
                 } catch (AWTException ex) {
-                    Logger.getLogger(JCapDialog.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(JCapGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
