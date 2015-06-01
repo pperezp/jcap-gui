@@ -1,0 +1,1 @@
+Entorno gráfico para la librería JCap para hacer capturas de pantalla
