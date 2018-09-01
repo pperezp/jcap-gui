@@ -53,7 +53,7 @@ public class JCapGui extends Observable/*extiende de observable, ya que
         this.addObserver(this);// añado el observador this porque esta clase implementa Observer
         
         //Cuando implementas de Observer tienes que implementar el metodo "update", que se llamará
-        //cuadno yo quiera, o sea, cuando haga una captura. Como se que se quiere capturar??
+        //cuando yo quiera, o sea, cuando haga una captura. Como se que se quiere capturar??
         //es el mouseRelease de la wea
         this.icap = icap;
         agregarListeners();//-> acá agrego todos los listeners al jdialog, onda, el
@@ -66,7 +66,7 @@ public class JCapGui extends Observable/*extiende de observable, ya que
         if(arg instanceof BufferedImage){//esto lo hice solamente por si despues le pongo otro object que no sea BufferedImage
             //pero por ahora siempre es BufferedImage
             BufferedImage bi = (BufferedImage)arg;//rescato la imagen. tu deci que mierda cuando se la pase?
-            // esa imagen se la paso en el metodo "thisMouseReleased" qe es cuando se genera la captura weon
+            // esa imagen se la paso en el metodo "thisMouseReleased" que es cuando se genera la captura weon
             //
             if(this.tamanioEnEquis != 1){//si el weon quiere una captura a mas de 1x, o sea 2 o 3 o n,
                 //hay que suavizar la wea pa q los pixeles no se vean tan cuadrados
@@ -75,7 +75,7 @@ public class JCapGui extends Observable/*extiende de observable, ya que
                 //al metodo le entrego la imagen suavizada
                 icap.captura(suavizarImagen(getImagenEscalada(bi, this.tamanioEnEquis)), this.tamanioEnEquis+"x");
             }else{//si el tamaño que quiere el weon es 1x, osea el origial,, no hay que
-                //suavizarlo, ya que si suevizas una wea del mismo tamaño se ve borroso
+                //suavizarlo, ya que si suevizas una wea del mismo tamaño se ve borro   so
                 //
                 icap.captura(getImagenEscalada(bi, this.tamanioEnEquis), this.tamanioEnEquis+"x");
             }
@@ -165,7 +165,7 @@ public class JCapGui extends Observable/*extiende de observable, ya que
         cap = new JCap(rec);// creo el objeto para capturar y le paso el rectangulo
         this.detenerCapturador();//detengo el capturador, que es solo un jdialog.setVisible(false)
         
-        //estos dos metodos son de la clase Observable y se llaman para que avisen a todos los Observadores que ha cambiado algo
+        //estos dos métodos son de la clase Observable y se llaman para que avisen a todos los Observadores que ha cambiado algo
         // en este caso les aviso a los observadores  que se capturo una imagen. Hay solo un observador que es esta misma clase te acordai?
         //si no te acordai lee el constructor
         setChanged();
@@ -174,7 +174,7 @@ public class JCapGui extends Observable/*extiende de observable, ya que
 
     //este el el primer click cuando quiero capturar pantalla y tengo que guardar el x y de la wea
     private void thisMousePressed(MouseEvent evt) {
-        jdialog.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR)); // cambio el cursos mas cachaña
+        jdialog.setCursor(new Cursor(Cursor.CROSSHAIR_CURSOR)); // cambio el cursor. Más cachaña
         rec = new Rectangle(new Point(evt.getX(), evt.getY())); // capturo el punto inicial y lo guardo en rec
     }
 

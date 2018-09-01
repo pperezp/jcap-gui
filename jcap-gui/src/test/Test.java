@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import org.jcapdialog.JCapDialog;
-import org.jcapdialog.model.ICap;
+import org.jcapgui.JCapGui;
+import org.jcapgui.model.ICap;
 
 /**
  *
@@ -26,7 +26,7 @@ public class Test extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         
-        JCapDialog jcap = new JCapDialog(this, new ICap() {
+        JCapGui jcap = new JCapGui(this, new ICap() {
             @Override
             public void captura(BufferedImage captura, String size) {
                 try {
@@ -36,8 +36,8 @@ public class Test extends javax.swing.JDialog {
                 }
             }
         }, 1);
-        
-        jcap.comenzarCapturador();
+//        
+//        jcap.comenzarCapturador();
     }
 
     /**
